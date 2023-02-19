@@ -35,12 +35,12 @@ def main():
     FileOrInput=input()
     if FileOrInput == 'I':
         text = input()
+        text.strip()
         mismatch = find_mismatch(text)
-        if mismatch == True:
+        if mismatch == "Success":
             print("Success")
 
         else:
-
             print(mismatch) 
     elif FileOrInput =='F':
         test_dir = 'test'
