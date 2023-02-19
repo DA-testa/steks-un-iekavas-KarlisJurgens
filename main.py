@@ -32,17 +32,16 @@ def find_mismatch(text):
 
 
 def main():
-    FileOrInput=input()
-    if FileOrInput == 'I':
-        text = input()
-        text.strip()
+    text = input()
+    if text[0] == 'I':
+        text=text[5:].strip() #Nogriezu pirmos 5 loceklus, jo citadak negaja github autograder. 
         mismatch = find_mismatch(text)
         if mismatch == "Success":
             print("Success")
 
         else:
             print(mismatch) 
-    elif FileOrInput =='F':
+    elif text =='F':
         test_dir = 'test'
         files = os.listdir(test_dir)
         files.sort()
@@ -69,3 +68,38 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# programma bez pirmo elementu nogriesanas
+# def main():
+#     FileOrInput=input()
+#     if FileOrInput == 'I':
+#         text = input()
+#         mismatch = find_mismatch(text)
+#         if mismatch == "Success":
+#             print("Success")
+
+#         else:
+#             print(mismatch) 
+#     elif FileOrInput =='F':
+#         test_dir = 'test'
+#         files = os.listdir(test_dir)
+#         files.sort()
+#         for i in range(0, len(files), 2):
+    
+#             file_name = os.path.join(test_dir, files[i])
+#             answer_name = os.path.join(test_dir, files[i+1])
+
+    
+#             with open(file_name, 'r') as f:
+#                 file_contents = f.read().strip()
+
+#             with open(answer_name, 'r') as f:
+#                 answer_contents = f.read().strip()
+
+            
+
+#             if str(find_mismatch(file_contents)) == answer_contents:
+#                 print(f"{file_name} Passed")
+#             else:
+#                 print(f"{file_name} Failed.")
+#                 print(find_mismatch(file_contents))
